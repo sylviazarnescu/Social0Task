@@ -122,15 +122,12 @@ plt_figure(5,8,'rect',[0.05 0.05 0.9 0.9], ...
     'gap', [0.04,0.04], ...
     'matrix_hole', mat);
 col = {{'AZred'},{'AZred'},...
-    {'AZsand'},{'AZsand85'},{'AZsand70'},{'AZsand','AZsand85','AZsand70'},...
+    {'AZsand'},{'AZsand85'},{'AZsand70'},{'AZsand','AZblue'},...
     {'AZcactus'},{'AZcactus85'},{'AZcactus70'},{'AZcactus55'},{'AZcactus40'},{'AZcactus'},...
     {'AZblue'},{'AZblue85'},{'AZblue70'},{'AZblue55'},{'AZblue40'},{'AZblue25'},{'AZblue10'},{'AZblue'}...
     {'AZred','AZsand','AZcactus','AZblue'},{'AZsand85','AZcactus85','AZblue85'},...
     {'AZsand70','AZcactus70','AZblue70'},{'AZcactus55','AZblue55'},{'AZcactus40','AZblue40'},{'AZblue25'},{'AZblue10'}};
-plt_setfig('color', col,'xlim',[0 10]);
-xlab = repmat({''},1,27);
-xlab{24} = 'XXX';
-plt_setfig('xlabel', xlab, 'ylabel', 'YYY');
+plt_setfig('color', col,'xlim',repm{[0 10]});
 for hi = 1:4
     for ni = 1:horizons(hi)
         [av,se] = tool_meanse(pchoice_solo{hi,ni});
@@ -152,9 +149,7 @@ for ni = 1:7
         end
     end
 end
-plt_update;
-%% plot, 7 lines, regardless of H, for different N
-%% plot, 4 lines, regardless of N, for different H
+
 
     %%
 for hi = 1:length(horizons_sub)
